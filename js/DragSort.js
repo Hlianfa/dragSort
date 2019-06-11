@@ -2,7 +2,7 @@
  * @Author: HLianfa 
  * @Date: 2019-06-12 21:43:09 
  * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2019-06-12 03:33:39
+ * @Last Modified time: 2019-06-12 03:57:41
  */
 // 涉及大量dom操作，考虑采用原生js实现
 class DragSort {
@@ -50,6 +50,7 @@ class DragSort {
     addTouchListener() {
         //使用事件委托，将li的事件委托给ul
         this.node.ontouchstart = (event) => {
+            event.preventDefault();
             let tar = event.target;
             if (tar.classList[0] === 'iconfont') {
                 let tarParent = tar.parentNode;
@@ -66,6 +67,7 @@ class DragSort {
             }
         }
         this.node.ontouchmove = (event) => {
+            event.preventDefault();
             let touchY = event.changedTouches[0].clientY;
             let tar = event.target;
             let tarParent = tar.parentNode;
@@ -83,6 +85,7 @@ class DragSort {
             }
         }
         this.node.ontouchend = (event) => {
+            event.preventDefault();
             let tar = event.target;
             if (tar.classList[0] === 'iconfont') {
                 for (let index = 0; index < 4; index++) {
@@ -92,7 +95,7 @@ class DragSort {
                 }
                 tar.classList.replace('iconshangxiayidong', 'icontoggle');
                 tar.parentNode.setAttribute('style',
-                    `top:${this.liHeight * (tar.parentNode.dataset.number - 1)}px`);
+                `top:${this.liHeight * (tar.parentNode.dataset.number - 1)}px`);
             }
         }
     }

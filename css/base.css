@@ -1,13 +1,15 @@
 @import url('../iconfont/iconfont.css');
 body {
+    width: 100vw;
     font-size: 16px;
     margin: 0;
+    padding: 0;
 }
 
 ul {
+    width: 100%;
     list-style: none;
     font-size: 0;
-    width: 100vw;
     padding: 0;
     margin: 0;
     position: relative;
@@ -17,7 +19,7 @@ ul>li {
     width: 100%;
     font-size: 1rem;
     border-bottom: 1px solid #eee;
-    padding: .6rem;
+    padding: .8rem;
     transition: all .2s;
     position: absolute;
     z-index: 1;
