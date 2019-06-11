@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>dragSort</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <script src="./js/DragSort.js"></script>
+</head>
+
+<body>
+    <ul id="container">
+        <li data-number="1">
+            <span class="number">1</span>
+            <span class="text">选项A</span>
+            <span class="iconfont icontoggle"></span>
+        </li>
+        <li data-number="2">
+            <span class="number">2</span>
+            <span class="text">选项B</span>
+            <span class="iconfont icontoggle"></span>
+        </li>
+        <li data-number="3">
+            <span class="number">3</span>
+            <span class="text">选项C</span>
+            <span class="iconfont icontoggle"></span>
+        </li>
+        <li data-number="4">
+            <span class="number">4</span>
+            <span class="text">选项D</span>
+            <span class="iconfont icontoggle"></span>
+        </li>
+    </ul>
+    <script>
+        new window.DragSort("container");
+    </script>
+</body>
+
+</html>
