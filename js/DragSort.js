@@ -2,7 +2,7 @@
  * @Author: HLianfa 
  * @Date: 2019-06-12 21:43:09 
  * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2019-06-12 13:00:56
+ * @Last Modified time: 2019-06-12 13:49:35
  */
 // 涉及大量dom操作，考虑采用原生js实现
 class DragSort {
@@ -27,8 +27,8 @@ class DragSort {
     moveHandler(liDom, tar, key, flag) {
         liDom.setAttribute('style', `top:${this.liHeight*(key-1)}px`);
         [liDom.dataset.number, tar.dataset.number] = [key, liDom.dataset.number];
-        liDom.children[0].innerText = key;
-        tar.children[0].innerText = key + flag;
+        liDom.children[0].children[0].innerText = key;
+        tar.children[0].children[0].innerText = key + flag;
     }
     // 向上移动
     preMove(liDom, tar, touchY, key) {
