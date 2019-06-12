@@ -2,7 +2,7 @@
  * @Author: HLianfa 
  * @Date: 2019-06-12 21:43:09 
  * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2019-06-12 03:57:41
+ * @Last Modified time: 2019-06-12 13:00:56
  */
 // 涉及大量dom操作，考虑采用原生js实现
 class DragSort {
@@ -19,7 +19,7 @@ class DragSort {
     }
     // 初始化列表项样式
     initTop() {
-        for (let index = 0; index < 4; index++) {
+        for (let index = 0; index < this.children.length; index++) {
             let child = this.children[index];
             child.setAttribute('style', `top:${index*this.liHeight}px`);
         }
@@ -54,7 +54,7 @@ class DragSort {
             let tar = event.target;
             if (tar.classList[0] === 'iconfont') {
                 let tarParent = tar.parentNode;
-                for (let index = 0; index < 4; index++) {
+                for (let index = 0; index < this.children.length; index++) {
                     let dom = this.children[index];
                     if (dom == tarParent) {
                         dom.classList.add('high-light');
@@ -73,7 +73,7 @@ class DragSort {
             let tarParent = tar.parentNode;
             let key = parseInt(tarParent.dataset.number);
             if (tar.classList[0] === 'iconfont' && touchY < this.liHeight * 3 && touchY > 0) {
-                for (let j = 0; j < 4; j++) {
+                for (let j = 0; j < this.children.length; j++) {
                     let liDom = this.children[j];
                     if (this.lastPosi < touchY) {
                         this.nextMove(liDom, tarParent, touchY, key)
@@ -88,7 +88,7 @@ class DragSort {
             event.preventDefault();
             let tar = event.target;
             if (tar.classList[0] === 'iconfont') {
-                for (let index = 0; index < 4; index++) {
+                for (let index = 0; index < this.children.length; index++) {
                     let dom = this.children[index];
                     dom.classList.remove('high-light');
                     dom.classList.remove('select-mode');
